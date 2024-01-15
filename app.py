@@ -17,7 +17,8 @@ def index():
     for user_key in user_keys:
         # get the value with the key
         user_data = redis_client.hgetall(user_key)
-        users.append(user_data)
+        user_entry = {user_key.decode('utf-8'): user_data}
+        users.append(user_entry)
 
     # render the template with the user data
     return render_template('index.html', users=users)
