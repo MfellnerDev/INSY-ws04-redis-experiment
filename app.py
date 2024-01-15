@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import redis
 
 app = Flask(__name__)
-redis_client = redis.StrictRedis(host=os.environ.get('REDIS_HOST'), port=os.environ.get('REDIS_PORT'), db=0,
+redis_client = redis.Redis(host=os.environ.get('REDIS_HOST'), port=os.environ.get('REDIS_PORT'), db=0,
                                  password=os.environ.get('REDIS_PWD'))
 
 
